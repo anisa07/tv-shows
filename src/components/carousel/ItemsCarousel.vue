@@ -44,6 +44,7 @@ const onPrev = () => {
 const slideStyle = computed(() => ({
   transform: `translateX(-${currentIndex.value * (100 / visibleSlides.value)}%)`,
   gap: isSingleSlideCarousel.value ? 0 : `${SLIDE_GAP}px`,
+  width: isSingleSlideCarousel.value ? `${LIST_ITEM_SLIDE_WIDTH}px` : 'unset',
 }));
 
 const container = useTemplateRef('container');
