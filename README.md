@@ -9,20 +9,20 @@ A user can click on a show and open its details including cast and sesons.
 
 ## Tools and why they were used
 
-Use **Vue3** to create the app. Vue router to navigate between pages.
-**Tailwind** to create fast and simple design. **Heroicons** for icons.
-**Vitest** for unit testing testing composables logic.  
-**Typescript** to ensure ebtities types safety.  
-Basic **eslint** and **prettier** to support formating and code style consistency.  
-**Vueuse** to handle fetch results, screen resize for device friendly solutions, and trottle input to make less requests to API.
+- Use **Vue3** to create the app. Vue router to navigate between pages.
+- **Tailwind** to create fast and simple design. **Heroicons** for icons.
+- **Vitest** for unit testing testing composables logic.
+- **Typescript** to ensure ebtities types safety.
+- Basic **eslint** and **prettier** to support formating and code style consistency.
+- **Vueuse** to handle fetch results, screen resize for device friendly solutions, and trottle input to make less requests to API.
 
 ## Used API endpoints
 
-https://api.tvmaze.com/shows?page={{ number }} - get list of shows to display on dasboard page
-https://api.tvmaze.com/singlesearch/shows?q={{ showName }} - get a single show by its name
-https://api.tvmaze.com/shows/{{ showId }} - get details about the show
-https://api.tvmaze.com/shows/{{ showId }}/seasons - get show seasons info
-https://api.tvmaze.com/shows/{{ showId }}/cast - get show cast
+- https://api.tvmaze.com/shows?page={{ number }} - get list of shows to display on dasboard page
+- https://api.tvmaze.com/singlesearch/shows?q={{ showName }} - get a single show by its name
+- https://api.tvmaze.com/shows/{{ showId }} - get details about the show
+- https://api.tvmaze.com/shows/{{ showId }}/seasons - get show seasons info
+- https://api.tvmaze.com/shows/{{ showId }}/cast - get show cast
 
 ## Requirements
 
@@ -58,9 +58,10 @@ npm run test
 
 ## Improvements
 
-The following improvements could be done in future  
-Add functionality to display information about show episodes and crew
-Add more tests both unit and e2e  
-Add other languages support
-To improve quality of the application and speed up development the API upgrade is required i.e. make it possible to filter by genre and rating, limit results per page, get information about pagination data
-In case of displaying big amount of data need to think about perfomance e.g. add virtualization for the long list of the shows
+The following improvements could be done in future
+
+- Add functionality to display information about show episodes and crew
+- Add more tests both unit and e2e
+- Add other languages support
+- To improve quality of the application and speed up development the API upgrade is required i.e. make it possible to filter by genre and rating, limit results per page, get information about pagination data
+  In case of displaying big amount of data need to think about perfomance e.g. add virtualization for the long list of the shows

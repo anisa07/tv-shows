@@ -1,15 +1,10 @@
 import { computed, nextTick, ref, watch } from 'vue';
 import { API_URL, SHOW_API_URL } from '@/config/api-config';
 import { useFetch, refThrottled } from '@vueuse/core';
-import { useRoute, type LocationQueryValue } from 'vue-router';
 import type { GenreType } from '@/types/genre-type';
 import type { Show } from '@/types/show-type';
 
-const parseCurrentPage = (page?: LocationQueryValue[] | LocationQueryValue) =>
-  page && !Array.isArray(page) ? parseInt(page, 10) : 1;
-
 export const useLoadShowList = () => {
-  const route = useRoute();
   const selectedGenre = ref<GenreType>('Action');
   const selectedRating = ref<number>(8);
   const ratingOptions = ref<number[]>([5, 6, 7, 8]);
@@ -17,8 +12,7 @@ export const useLoadShowList = () => {
   const genreOptions = ref<GenreType[]>([]);
   const showSearchInput = ref('');
   const throttledSearch = refThrottled(showSearchInput, 1000);
-
-  const currentPage = computed(() => parseCurrentPage(route.query.page));
+  const currentPage = ref(1);
 
   const showListUrl = computed(() =>
     throttledSearch.value

@@ -43,8 +43,8 @@ const showListAsGrid = ref(false);
         <Select v-model:value="selectedRating" :options="ratingOptions" label="Rating above" name="rating" />
       </div>
       <div class="flex flex-wrap gap-4">
-        <CheckBox class="mt-4" v-model:checked="showListAsGrid" label="Display list as grid" />
-        <ShowsPagination :page="currentPage" :pageOptions="pageOptions" />
+        <CheckBox class="mt-4" v-model:checked="showListAsGrid" name="grid-mode" label="Display list as grid" />
+        <ShowsPagination v-model:page="currentPage" :pageOptions="pageOptions" />
       </div>
     </section>
 

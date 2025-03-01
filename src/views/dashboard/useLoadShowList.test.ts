@@ -13,14 +13,9 @@ vi.mock('@vueuse/core', async () => ({
   })),
 }));
 
-vi.mock('vue-router', () => {
-  return {
-    useRoute: vi.fn(() => ({
-      query: {
-        page: '1',
-      },
-    })),
-  };
+vi.stubGlobal('window', {
+  location: { href: '' },
+  scrollTo: vi.fn(),
 });
 
 describe('useLoadShowList', () => {
@@ -118,15 +113,6 @@ describe('useLoadShowList', () => {
       vi.mocked(refThrottled).mockReturnValue({
         value: '',
       } as unknown as ReturnType<typeof refThrottled>);
-      vi.mock('vue-router', () => {
-        return {
-          useRoute: vi.fn(() => ({
-            query: {
-              page: '2',
-            },
-          })),
-        };
-      });
     });
 
     afterEach(() => {
@@ -136,6 +122,7 @@ describe('useLoadShowList', () => {
     test('should return a list of shows for page = 2', async () => {
       const { showList, showListError, selectedGenre, selectedRating, currentPage } = useLoadShowList();
       selectedRating.value = 7;
+      currentPage.value = 2;
 
       expect(showListError.value).toBe(null);
       expect(selectedGenre.value).toBe('Action');

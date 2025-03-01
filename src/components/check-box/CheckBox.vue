@@ -1,12 +1,16 @@
 <script setup lang="ts">
-defineProps<{ label: string }>();
+import { computed } from 'vue';
+
+const props = defineProps<{ label: string; name: string }>();
 const value = defineModel('checked', { required: true });
+
+const checkId = computed(() => `check-${props.name}`);
 </script>
 
 <template>
   <div class="flex items-center gap-2 check-container">
-    <input class="checkbox" type="checkbox" id="check" v-model="value" />
-    <label class="font-bold" for="check">{{ label }}</label>
+    <input class="checkbox" type="checkbox" :id="checkId" v-model="value" />
+    <label class="font-bold" :for="checkId">{{ label }}</label>
   </div>
 </template>
 

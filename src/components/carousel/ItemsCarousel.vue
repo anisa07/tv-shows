@@ -78,7 +78,7 @@ watch(
       </div>
     </div>
 
-    <EmptyLine v-else> No items found </EmptyLine>
+    <EmptyLine v-else>No items found</EmptyLine>
 
     <CarouselButton v-if="showControls" @click="onNext">
       <ArrowRightIcon class="size-6 text-primary" />
