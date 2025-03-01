@@ -1,0 +1,67 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-dark-back-1: oklch(0.277 0.046 192.524);
+  --color-dark-back-2: oklch(0.208 0.042 265.755);
+  --color-text: #fff;
+  --color-primary: oklch(0.72 0.11 178);
+  --color-primary-dark-shade: oklch(0.437 0.078 188.216);
+  --color-border: oklch(0.704 0.04 256.788);
+  --color-placeholder: oklch(0.704 0.04 256.788);
+  --color-gray-label: oklch(0.704 0.04 256.788);
+  --color-input: oklch(0.372 0.044 257.287);
+  --color-card: oklch(0.372 0.044 257.287);
+  --color-nav: oklch(0.372 0.044 257.287);
+  --color-primary: oklch(0.72 0.11 178);
+  --color-primary-text: oklch(0.129 0.042 264.695);
+  --color-primary-dark-shade: oklch(0.437 0.078 188.216);
+  --spacing-input-min-width: 200px;
+  --spacing-slide-width: 220px;
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.75s ease-in both;
+}
+
+@layer components {
+  .base-input {
+    padding: 0.5rem 0.75rem;
+    min-width: var(--spacing-input-min-width);
+    border-radius: 0.25rem;
+    background-color: var(--color-input);
+    border: 1px solid var(--color-border);
+  }
+
+  .base-input:focus {
+    outline-color: var(--color-primary);
+  }
+
+  .base-input::placeholder {
+    color: var(--color-placeholder);
+  }
+}
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  background: radial-gradient(var(--color-dark-back-1), var(--color-dark-back-2));
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--color-text);
+}
